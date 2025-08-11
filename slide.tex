@@ -13,7 +13,7 @@
 
 \input{math_commands.tex}
 
-\author{Yan Lin}
+\author{\underline{Yan Lin}, Jonas A. Finkler, Tao Du, Morten M. Smedskjaer, Jilin Hu}
 \title{AMDEN: Amorphous Materials DEnoising Network}
 \subtitle{Generation of Amorphous Materials with Tailored Properties}
 \institute{
@@ -269,16 +269,34 @@
     \centering
     \begin{subfigure}{0.45\textwidth}
       \centering
-      \includegraphics[width=\linewidth]{figures/bmp_E.pdf}
-      \caption{Accuracy of Young's modulus of generated samples}
+      \includegraphics[width=\linewidth]{figures/bmp_Li.pdf}
+      \caption{Distribution of Lithium ratio of training data and generated samples (with target being 0.15)}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
       \centering
-      \includegraphics[width=\linewidth]{figures/bmp_Li.pdf}
-      \caption{Distribution of Lithium ratio of training data and generated samples (with target being 0.15)}
+      \includegraphics[width=\linewidth]{figures/bmp_E.pdf}
+      \caption{Accuracy of Young's modulus of generated samples}
     \end{subfigure}
   \end{figure}
+\end{frame}
+
+\begin{frame}{Generation of Multi-element Glass}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item The flattening at both ends is primarily the result of extrapolation
+        \item The Young's modulus of generated samples tend to be smaller than targets
+        \item Requenched samples that are simulated with the compositions of generated samples align better with targets
+        \item The model is able to generate compositionally accurate samples but falls short in generating structures accurately
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[width=\linewidth]{figures/bmp_E.pdf}
+      \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Generation of Amorphous Silicon}
@@ -305,12 +323,12 @@
 \end{frame}
 
 \begin{frame}{Limitations}
-  \begin{block}{Real-world synthesis of generated samples}
-    New synthesis techniques are needed to fully take advantage of the generated atomic configurations.
-  \end{block}
-
   \begin{block}{Generation of samples with relaxed structures}
     Unable to generate amorphous materials with relaxed structures, an inherent limitation of diffusion models.
+  \end{block}
+
+  \begin{block}{Real-world synthesis of generated samples}
+    New synthesis techniques are needed to fully take advantage of the generated atomic configurations.
   \end{block}
 
   \vspace{1em}
