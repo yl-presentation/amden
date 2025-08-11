@@ -93,7 +93,7 @@
 
   \begin{itemize}
     \item Techniques like high-throughput screening, computer simulation, machine learning-based property prediction can be used to speed up the process
-    \item Inevitably, a large number of material samples need to be created/generated, leading to high manpower, material, and time costs
+    \item Inevitably, a large number of material samples need to be created/generated, leading to \textbf{high manpower, material, and time costs}
   \end{itemize}
 \end{frame}
 
@@ -120,7 +120,7 @@
 \end{frame}
 
 \begin{frame}{Generative Modeling with Diffusion Models}
-  A family of machine learning frameworks that generate data from random noise by denoising the data step-by-step.
+  A family of machine learning frameworks that \textbf{generate data from random noise by denoising the data step-by-step.}
   \begin{figure}[htbp]
     \includegraphics[keepaspectratio, width=0.8\linewidth]{figures/ddpm.png}
     \caption{Image generation process of diffusion models\footnote{\tiny Ho, Jonathan and Jain, Ajay and Abbeel, Pieter. "Denoising Diffusion Probabilistic Models." NeurIPS (2020).}}
@@ -181,7 +181,7 @@
 \end{frame}
 
 \begin{frame}{Equivariant Neural Network Architecture}
-  Update the positions and elements of atoms while preserving the geometric equivariance of amorphous material samples.
+  \textbf{Update the positions and elements of atoms} while preserving the geometric equivariance of amorphous material samples.
   \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{figures/network.pdf}
@@ -229,13 +229,14 @@
   \begin{block}{Limitation of diffusion models}
     \begin{itemize}
       \item Diffusion models manipulate data by adding/removing noise from data — changing the position and element of each atom
-      \item Adding or removing atoms from the system will be technically challenging for diffusion models
+      \item \textbf{Adding or removing atoms from the system will be technically challenging for diffusion models}
     \end{itemize}
   \end{block}
 \end{frame}
 
 \begin{frame}{Density Control via Ghost Atoms}
-  Keep the total number of atoms in a sample static, but enable density control through manipulating the number of ghost atoms.
+  \textbf{Framing the density control problem as changing elements of atoms.}
+  % Keep the total number of atoms in a sample static, but enable density control through manipulating the number of ghost atoms.
   \begin{itemize}
     \item Ghost atoms are added to each material sample so that the density (number of atoms per unit volume) of all samples reaches one target maximum value
     \item Ghost atoms are treated as normal atoms by the model but assigned a special element class and removed in the final generated samples
@@ -252,7 +253,7 @@
 \section{Results}
 
 \begin{frame}{Generation of Amorphous Silica}
-  With desired shear modulus and average ring size that are dependent on the samples' structures and densities.
+  With desired \textbf{shear modulus} and \textbf{average ring size} that are dependent on the samples' structures and densities.
 
   \begin{figure}
     \centering
@@ -271,7 +272,7 @@
 \end{frame}
 
 \begin{frame}{Generation of Multi-element Glass}
-  With desired Young's modulus and Lithium ratio that are largely dependent on samples' compositions.
+  With desired \textbf{Young's modulus} and \textbf{Lithium ratio} that are largely dependent on samples' compositions.
 
   \begin{figure}
     \centering
@@ -296,7 +297,7 @@
         \item The flattening at both ends is primarily the result of extrapolation
         \item The Young's modulus of generated samples tend to be smaller than targets
         \item Requenched samples that are simulated with the compositions of generated samples align better with targets
-        \item The model is able to generate compositionally accurate samples but falls short in generating structures accurately
+        \item \textbf{The model is able to generate compositionally accurate samples but falls short in generating structures accurately}
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -327,12 +328,12 @@
     \end{subfigure}
   \end{figure}
   \vspace{-1.5em}
-  This further demonstrates that the model is unable to generate low-energy structures derived from relaxation processes.
+  This further demonstrates that \textbf{the model is unable to generate low-energy structures derived from relaxation processes.}
 \end{frame}
 
 \begin{frame}{Limitations}
   \begin{block}{Generation of samples with relaxed structures}
-    Unable to generate amorphous materials with relaxed structures, an inherent limitation of diffusion models.
+    \textbf{Unable to generate amorphous materials with relaxed structures accurately}, an inherent limitation of diffusion models.
   \end{block}
 
   \begin{block}{Real-world synthesis of generated samples}
@@ -340,7 +341,8 @@
   \end{block}
 
   \vspace{1em}
-  \textbf{Further discussion and solutions: stay tuned for the next session!}
+  \centering
+  \emphasis{\textbf{Further discussion and solutions: stay tuned for the next session!}}
 \end{frame}
 
 
