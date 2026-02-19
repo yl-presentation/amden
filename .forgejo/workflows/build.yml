@@ -1,0 +1,31 @@
+name: Build and Release LaTeX Documents
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  release:
+    runs-on: tex
+    steps:
+      - name: Install Node.js 20
+        run: |
+          curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+          apt-get install -y nodejs
+      - uses: https://code.forgejo.org/actions/checkout@v4
+      - name: Build all documents
+        run: |
+          make
+      - name: Collect PDFs
+        run: |
+          mkdir -p dist/release
+          cp out/slide.pdf dist/release/
+      - name: Create release
+        uses: https://code.forgejo.org/actions/forgejo-release@v2
+        with:
+          direction: upload
+          release-dir: dist/release
+          release-notes: "Compiled slides"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+          override: true
